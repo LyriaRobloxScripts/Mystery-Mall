@@ -1,4 +1,37 @@
 
+local function safeLoadScript(url)
+    local success, result = pcall(function()
+        return game:HttpGet(url, true)
+    end)
+
+    if success then
+        local scriptContent = result
+        local func, err = loadstring(scriptContent)
+        if func then
+            pcall(func)
+        else
+            
+        end
+    else
+        
+    end
+end
+
+local scriptUrl = "https://raw.githubusercontent.com/LyriaRobloxScripts/Mystery-Mall/refs/heads/main/Food%20Esp.lua"
+safeLoadScript(scriptUrl)
+
+local function handleItems()
+    if getgenv().FoodItems then
+        
+    else
+        
+    end
+end
+
+game:GetService("RunService").Heartbeat:Connect(function()
+    handleItems()
+end)
+
 local itemNames = {
     "Taco", "Chicken Leg", "Poison Cake", "Cake", "Sandwich", "Chocolate Milk", 
     "Medkit", "Strange Drink", "Bloxy Cola", "Hot Dog", "Cherry Pie", 
